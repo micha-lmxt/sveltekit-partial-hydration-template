@@ -1,0 +1,51 @@
+### Markdown
+This text comes from a Markdown file. 
+The file is processed by [mdsvex](https://mdsvex.com/), but only on the server. With "adapter-static",
+it generates static html files and only minimal javascript.
+
+### Layout Extension
+
+You may have noticed, the h3 header are customized with svelte 'fly' transitions. [Mdsvex](https://mdsvex.com/) 
+has an option to provide a custom layout file. There you can apply custom components (see https://mdsvex.com/docs#custom-components).
+
+```svelte
+<!-- FancyH3 -->
+<script>
+    import { fly } from 'svelte/transition';
+</script>
+<h3 transition:fly={{ y: 200, duration: 2000 }}><slot/></h3>
+```
+
+In an extra file, the component is wrapped with the 'Hydrate' component.
+
+```svelte
+<!-- FH3.svelte -->
+<script>
+import FancyH3 from './FancyH3.svelte';
+import Hydrate from '$lib/partialhydration/Hydrate.svelte';
+</script>
+<Hydrate component={FancyH3}><slot/></Hydrate>
+```
+
+Note, that the component allows slots. The content of the slot is static, it will not be hydrated. Further
+hydrates inside the slot are possible.
+This file 'FH3.svelte' is imported and exported by the layout file.
+
+#### Hydrate function 
+
+For convenience, there is a function 'hydrate', so that one less '.svelte' file is needed. See how 
+the 'h4' is customized:
+
+```svelte
+<!-- MarkdownLayout.svelte -->
+<script context="module">
+  import {hydrate} from '$lib/partialhydration/hydrate';
+  import  h3  from './F.svelte';
+  import fancyh3 from './FancyH3.svelte';
+  
+  const h4 = hydrate(fancyh3);
+  export { h3, h4 };
+</script>
+<slot/>
+```
+
