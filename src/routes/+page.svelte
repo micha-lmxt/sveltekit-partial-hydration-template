@@ -1,12 +1,8 @@
 <script lang="ts">
-import {page} from '$app/stores'
+    import {PartialApp} from 'partial-hydration-sk';
+    import FancyH3 from '$lib/components/FancyH3.svelte';
+    
 </script>
-<h1>Welcome to SvelteKit Partial Hydration Template</h1>
-<nav>
-    <ul>
-    <li><a href="/basicexample">Basic Example</a></li>
-    <li><a href="/markdown">Markdown Example</a></li>
-    </ul>
-</nav>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-{JSON.stringify($page)}
+<PartialApp tag="div" id="appstart" page="Welcome" starts={[FancyH3]}/>
+
+

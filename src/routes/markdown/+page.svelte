@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PartialApp from '$lib/partialhydration/partialApp';
+    import {PartialApp} from 'partial-hydration-sk';
     import FancyH3 from '$lib/components/FancyH3.svelte';
     
 </script>

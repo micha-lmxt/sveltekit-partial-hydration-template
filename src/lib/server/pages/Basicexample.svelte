@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Hydrate from '$lib/partialhydration/Hydrate.svelte';
+    import {Hydrate} from 'partial-hydration-sk';
     import C from '$lib/components/HelloWorld.svelte';
     
 </script>
