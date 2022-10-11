@@ -1,0 +1,61 @@
+# Lazy Loading
+
+You can delay the download of code and hydration. To do that, the array argument of the function 'setDynamicComponents' also accepts functions, which return a promise to a SvelteComponent:
+
+
+```javascript
+import { setDynamicComponents } from 'partial-hydration-sk/pages';
+
+export async function load(){
+    setDynamicComponents(
+        [
+            async () => (await import('../LazyLoadedComponent.svelte')).default
+        ])
+}
+```
+
+In the static component, you can import the component directly:
+
+```svelte
+<!--inside YourStaticComponent.svelte-->
+<script>
+    import LazyLoadedComponent from '.../LazyLoadedComponent.svelte'
+    import {Hydrate} from 'partial-hydration-sk';
+</script>
+
+...
+    <Hydrate component={LazyLoadedComponent} trigger="observer" key="mylazy">
+        <SomeMoreStaticCode>
+    </Hydrate>
+...
+```
+
+If you omit the trigger prop or set it to "observer", the import and hydration is triggered by an intersection observer. Once the surrounding element is visible, it is hydrated. 
+
+scroll down:
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+lazy
+
+#### Hydrate function 
+
+Once you scroll down here, the component is imported and hydrated.

@@ -6,6 +6,7 @@
     <ul>
     <li><a href="/basicexample">Basic Example</a></li>
     <li><a href="/markdown">Markdown Example</a></li>
+    <li><a href="/lazyloading">Lazy loading Example</a></li>
     </ul>
 </nav>
 <Readme/>
