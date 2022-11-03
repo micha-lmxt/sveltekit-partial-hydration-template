@@ -13,7 +13,8 @@ const config = {
 	}),preprocess()],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		trailingSlash: 'always'
 	}
 };
 

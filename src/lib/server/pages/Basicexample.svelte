@@ -22,3 +22,8 @@
     <Hydrate component={C} tag="div" />
     </section>
 </main>
+<style>
+h3{
+    text-decoration:underline;
+}
+</style>

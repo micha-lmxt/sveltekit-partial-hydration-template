@@ -2,7 +2,7 @@
     import {PartialApp} from 'partial-hydration-sk';
     let hydrated;
     let triggerButtonProps;
-    $: if(hydrated){
+    $: if(hydrated && Array.isArray(hydrated)){
         hydrated.forEach(e => {
             if (e.key === "click"){
                 e.element.onclick=e.trigger
@@ -22,6 +22,6 @@
     }
     
 </script>
-<PartialApp tag="div" id="appstart" page="CustomTrigger" bind:hydrated/>
+<PartialApp tag="div" id="appstart" page="CustomTrigger" bind:hydrated={hydrated}/>
 
 
