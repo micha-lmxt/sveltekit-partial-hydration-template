@@ -1,7 +1,7 @@
 <script lang="ts">
     import {Hydrate} from 'partial-hydration-sk';
     import C from '$lib/components/HelloWorld.svelte';
-    
+    import Heart from '$lib/components/Heart.svelte'
 </script>
 <main>
     <section>
@@ -20,6 +20,7 @@
     <p>In 'routes/basicexample/+page.svelte' the component is passed to the 'starts' prop. This prop accepts an array of svelte components. All components, which should be hydrated by a 'Hydrate' component should be registered there.</p>
     <p>Note that the button in the 'HelloWorld.svelte' component uses fade in and out animation. </p>
     <Hydrate component={C} tag="div" />
+    <Heart/>
     </section>
 </main>
 <style>

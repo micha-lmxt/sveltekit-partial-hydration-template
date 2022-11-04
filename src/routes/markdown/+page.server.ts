@@ -1,5 +1,5 @@
 import Md from '$lib/server/pages/Markdown.svx';
-import {addPage} from 'partial-hydration-sk';
+import {addPage} from 'partial-hydration-sk/server';
 
 export async function load(){
 

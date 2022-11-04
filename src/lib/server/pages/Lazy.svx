@@ -1,3 +1,7 @@
+<script>
+    import Heart from '$lib/components/Heart.svelte';
+    import {Hydrate} from 'partial-hydration-sk'
+</script>
 # Lazy Loading
 
 You can delay the download of code and hydration. To do that, the array argument of the function 'setDynamicComponents' also accepts functions, which return a promise to a SvelteComponent:
@@ -35,6 +39,8 @@ If you omit the trigger prop or set it to "observer", the import and hydration i
 scroll down:
 
 lazy
+
+<Hydrate component={Heart}/>
 
 lazy
 
